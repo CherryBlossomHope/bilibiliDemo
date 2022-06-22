@@ -16,9 +16,6 @@ export default {
 
 <style>
 @import "./assets/css/reset.css";
-body {
-  font-family: Microsoft YaHei !important;
-}
 div {
   box-sizing: border-box;
 }
