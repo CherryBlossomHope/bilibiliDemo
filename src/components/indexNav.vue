@@ -73,6 +73,8 @@ export default {
 .index-Nav {
   position: sticky;
   top: 0;
+  z-index: 999;
+  background: #fff;
 }
 .disflex {
   display: flex;

@@ -8,6 +8,7 @@
 <script>
 import indexNav from "@/components/indexNav.vue";
 export default {
+  beforeDestroy() {},
   components: {
     indexNav,
   },
