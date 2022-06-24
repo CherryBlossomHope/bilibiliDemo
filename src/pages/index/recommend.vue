@@ -18,7 +18,7 @@
         v-for="(item, index) in videoList"
         :key="index"
         class="box"
-        @click="seeView(index)"
+        @click="seeView(item._id)"
       >
         <div class="imgBox">
           <img :src="item.imgUrl" alt="" />
@@ -79,62 +79,11 @@ export default {
           txt: "分享游戏瞬间,抽取精美奖品>>>",
         },
       ],
-      videoList: [
-        {
-          imgUrl: require("@/assets/images/videoImg.webp"),
-          playBack: "4651",
-          popups: 152,
-          time: "2:52",
-          videoName:
-            "人人嫌弃的丑女，因少年一句话变成绝世美人！这番全程高能却被埋没！着实可惜！",
-          upName: "政宗君de情敌",
-        },
-        {
-          imgUrl: require("@/assets/images/videoImg2.webp"),
-          playBack: "1.1万",
-          popups: 3150,
-          time: "2:52",
-          videoName: "【JOJO】本草纲目-JO杰伦",
-          upName: "陌一一微凉",
-        },
-        {
-          imgUrl: require("@/assets/images/videoImg3.webp"),
-          playBack: "48.9万",
-          popups: 53,
-          time: "2:52",
-          videoName: "【洗脑循环】阿尼亚又来给你洗脑啦~哇酷哇酷☆",
-          upName: "柚卡yk",
-        },
-        {
-          imgUrl: require("@/assets/images/videoImg4.webp"),
-          playBack: "2.6万",
-          popups: 27,
-          time: "2:52",
-          videoName: "辉夜大小姐想让我告白 -究极浪漫-",
-          upName: "哔哩哔哩追番",
-        },
-        {
-          imgUrl: require("@/assets/images/videoImg5.webp"),
-          playBack: "2.6万",
-          popups: 27,
-          time: "2:52",
-          videoName: "“流浪猫将全部的温柔，都给了静香一人。”",
-          upName: "英缘木",
-        },
-        {
-          imgUrl: require("@/assets/images/videoImg6.webp"),
-          playBack: "1.9万",
-          popups: 32,
-          time: "4:58",
-          videoName:
-            "【ACG鉴赏会】伪娘作品的巅峰之作 一部集浪漫与理想为一体的作品",
-          upName: "Eins陈",
-        },
-      ],
+      videoList: [],
     };
   },
   methods: {
-    more(i) {
+    more() {
       console.log(123);
     },
     seeView(i) {
@@ -142,10 +91,14 @@ export default {
     },
   },
   mounted() {
-    this.axios
-      .get("http://81.68.198.249:3002/videoList", {})
-      .then((res) => console.log(res.data))
-      .catch((err) => console.error(err));
+    this.axios.get("http://81.68.198.249:3002/videoList").then(
+      (res) => {
+        this.videoList = res.data;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   },
 };
 </script>
