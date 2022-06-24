@@ -141,6 +141,12 @@ export default {
       console.log(i);
     },
   },
+  mounted() {
+    this.axios
+      .get("http://81.68.198.249:3002/videoList", {})
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
+  },
 };
 </script>
 
