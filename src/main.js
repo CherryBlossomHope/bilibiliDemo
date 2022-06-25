@@ -10,10 +10,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-//引入axios插件
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios)
+//引入二次封装axios
+import axios from "./api/axios";
+Vue.prototype.axios = axios;
 
 new Vue({
   render: h => h(App),

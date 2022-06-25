@@ -66,18 +66,18 @@ export default {
   data() {
     return {
       swiperImg: [
-        {
-          url: require("@/assets/images/swiper1.jpg"),
-          txt: "分享游戏瞬间,抽取精美奖品>>>",
-        },
-        {
-          url: require("@/assets/images/swiper2.jpg"),
-          txt: "分享游戏瞬间,抽取精美奖品>>>",
-        },
-        {
-          url: require("@/assets/images/swiper3.jpg"),
-          txt: "分享游戏瞬间,抽取精美奖品>>>",
-        },
+        // {
+        //   url: require("@/assets/images/swiper1.jpg"),
+        //   txt: "分享游戏瞬间,抽取精美奖品>>>",
+        // },
+        // {
+        //   url: require("@/assets/images/swiper2.jpg"),
+        //   txt: "分享游戏瞬间,抽取精美奖品>>>",
+        // },
+        // {
+        //   url: require("@/assets/images/swiper3.jpg"),
+        //   txt: "分享游戏瞬间,抽取精美奖品>>>",
+        // },
       ],
       videoList: [],
     };
@@ -91,14 +91,13 @@ export default {
     },
   },
   mounted() {
-    this.axios.get("http://81.68.198.249:3002/videoList").then(
-      (res) => {
-        this.videoList = res.data;
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    this.axios.get("videoList").then((res) => {
+      this.videoList = res;
+    });
+    this.axios.get("indexswiper").then((res) => {
+      this.swiperImg = res;
+      console.log(res);
+    });
   },
 };
 </script>
