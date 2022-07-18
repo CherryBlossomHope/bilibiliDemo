@@ -15,8 +15,8 @@
     </el-carousel>
     <div class="videoBox">
       <div
-        v-for="(item, index) in videoList"
-        :key="index"
+        v-for="item in videoList"
+        :key="item._id"
         class="box"
         @click="seeView(item._id)"
       >
@@ -96,7 +96,6 @@ export default {
     });
     this.axios.get("indexswiper").then((res) => {
       this.swiperImg = res;
-      console.log(res);
     });
   },
 };
